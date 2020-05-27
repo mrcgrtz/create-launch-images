@@ -1,5 +1,6 @@
 const logSymbols = require('log-symbols');
 const got = require('got');
+const convertCssColorNameToHex = require('convert-css-color-name-to-hex');
 
 const hasValidName = response => response && (response.name || response.short_name);
 const hasValidIcons = response => response && response.icons && Array.isArray(response.icons) && response.icons.length !== 0;
@@ -60,7 +61,7 @@ module.exports = async url => {
 			return {
 				name: response.name || response.short_name,
 				icon: iconUrl.href,
-				color: response.background_color
+				color: convertCssColorNameToHex(response.background_color)
 			};
 		}
 	} catch {

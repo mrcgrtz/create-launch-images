@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "canvas": "^2.6.1",
+    "convert-css-color-name-to-hex": "^0.1.1",
     "got": "^11.1.4",
     "invert-color": "^2.0.0",
     "log-symbols": "^4.0.0",
