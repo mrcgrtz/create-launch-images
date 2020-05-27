@@ -1,3 +1,4 @@
+const logSymbols = require('log-symbols');
 const got = require('got');
 
 const hasValidName = response => response && (response.name || response.short_name);
@@ -39,17 +40,17 @@ module.exports = async url => {
 		const response = await got(url).json();
 
 		if (!hasValidName(response)) {
-			console.error('❌ No name or short_name given.');
+			console.error(logSymbols.error, 'No name or short_name given.');
 			return;
 		}
 
 		if (!hasValidIcons) {
-			console.error('❌ No icons given.');
+			console.error(logSymbols.error, 'No icons given.');
 			return;
 		}
 
 		if (!hasValidColor) {
-			console.error('❌ No background_color given.');
+			console.error(logSymbols.error, 'No background_color given.');
 			return;
 		}
 
@@ -63,6 +64,6 @@ module.exports = async url => {
 			};
 		}
 	} catch {
-		console.error('❌ Could not fetch manifest');
+		console.error(logSymbols.error, 'Could not fetch manifest');
 	}
 };

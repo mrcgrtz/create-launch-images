@@ -1,3 +1,4 @@
+const logSymbols = require('log-symbols');
 const fs = require('fs');
 
 const devices = require('./devices');
@@ -23,6 +24,6 @@ module.exports = (manifestUrl, {outputDir = '.'}) => (async () => {
 			});
 		});
 	} catch {
-		console.error(`❌ Could not parse ${manifestUrl}`);
+		console.error(logSymbols.error, `Could not parse ${manifestUrl}`);
 	}
 })();
