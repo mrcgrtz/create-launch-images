@@ -6,7 +6,7 @@ const hasValidName = response => response && (response.name || response.short_na
 const hasValidIcons = response => response && response.icons && Array.isArray(response.icons) && response.icons.length !== 0;
 const hasValidColor = response => response && response.background_color;
 
-const isPNG = icon => icon.type === 'image/png' || icon.src.endWith('.png');
+const isPNG = icon => icon.type === 'image/png' || icon.src.endsWith('.png');
 const isSquare = icon => {
 	const size = icon.sizes && icon.sizes.split(' ')[0];
 	const [width, height] = size.split('x');
@@ -16,9 +16,9 @@ const isSquare = icon => {
 const getMaxSize = sizes => Number(sizes.split(' ').sort((a, b) => Number(b.split('x')[0]) - Number(a.split('x')[0])).shift().split('x')[0]);
 
 const getLargestSquareIcon = icons => {
-	const squarePNGs = icons.filter(icon => {
-		return icon.purpose !== 'maskable' && isPNG(icon) && isSquare(icon);
-	});
+	const squarePNGs = icons.filter(icon =>
+		icon.purpose !== 'maskable' && isPNG(icon) && isSquare(icon)
+	);
 
 	let max = squarePNGs[0];
 	const size = squarePNGs.length;
