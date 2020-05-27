@@ -9,7 +9,7 @@ const hasValidColor = response => response && response.background_color;
 const isPNG = icon => icon.type === 'image/png' || icon.src.endsWith('.png');
 const isSquare = icon => {
 	const size = icon.sizes && icon.sizes.split(' ')[0];
-	if (size && size.contains('x')) {
+	if (size && size.includes('x')) {
 		const [width, height] = size.split('x');
 		return width === height;
 	}
