@@ -1,0 +1,39 @@
+{
+  "name": "create-launch-images",
+  "version": "0.0.1",
+  "description": "A little script to create Android-like launch images for iOS PWA’s based on a Web App Manifest.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Dreamseer/create-launch-images.git"
+  },
+  "author": {
+    "name": "Marc Görtz",
+    "email": "git@marcgoertz.de",
+    "url": "https://marcgoertz.de/"
+  },
+  "bin": {
+    "create-launch-images": "cli.js"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "scripts": {
+    "format": "xo --fix",
+    "test": "xo"
+  },
+  "dependencies": {
+    "canvas": "^2.6.1",
+    "got": "^11.1.4",
+    "invert-color": "^2.0.0",
+    "meow": "^7.0.1"
+  },
+  "devDependencies": {
+    "pre-commit": "^1.2.2",
+    "xo": "^0.29.1"
+  },
+  "pre-commit": [
+    "format",
+    "test"
+  ]
+}
