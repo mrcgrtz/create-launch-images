@@ -56,9 +56,9 @@ $ yarn global add create-launch-images
 
 ## Examples
 
-![Example 1: Airhorner](samples/1.png)
-![Example 2: My music club](samples/2.png)
-![Example 3: My bowling club](samples/3.png)
+<img src="samples/1.png" width="30%" alt="Example 1: Airhorner">
+<img src="samples/2.png" width="30%" alt="Example 2: My music club">
+<img src="samples/3.png" width="30%" alt="Example 3: My bowling club">
 
 ## License
 
