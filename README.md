@@ -54,6 +54,12 @@ $ yarn global add create-launch-images
 3. The `background_color` property is used for the image’s background color. Falls back to `white`.
 4. The `orientation` property is used for the output formats (portrait, landscape or both).
 
+## Examples
+
+![Example 1: Airhorner](samples/1.png)
+![Example 2: My music club](samples/2.png)
+![Example 3: My bowling club](samples/3.png)
+
 ## License
 
 MIT © [Marc Görtz](https://marcgoertz.de/)
