@@ -12,7 +12,7 @@ module.exports = async ({
 	// Flags
 	outputDir, addRadius, font,
 	// Manifest data
-	name, icon, color = '#fff'
+	name, icon, color
 }) => {
 	const isPortrait = width < height;
 

@@ -2,9 +2,8 @@ const logSymbols = require('log-symbols');
 const got = require('got');
 const convertCssColorNameToHex = require('convert-css-color-name-to-hex');
 
-const hasValidName = response => response && (response.name || response.short_name);
+const hasValidName = response => response && response.name;
 const hasValidIcons = response => response && response.icons && Array.isArray(response.icons) && response.icons.length !== 0;
-const hasValidColor = response => response && response.background_color;
 
 const isPNG = icon => icon.type === 'image/png' || icon.src.endsWith('.png');
 const isMaskable = icon => icon.purpose && icon.purpose.split(' ').includes('maskable');
@@ -59,7 +58,7 @@ module.exports = async (url, preferMaskable = false) => {
 		}).json();
 
 		if (!hasValidName(response)) {
-			console.error(logSymbols.error, 'No name or short_name given.');
+			console.error(logSymbols.error, 'No name given.');
 			return;
 		}
 
@@ -68,18 +67,13 @@ module.exports = async (url, preferMaskable = false) => {
 			return;
 		}
 
-		if (!hasValidColor(response)) {
-			console.error(logSymbols.error, 'No background_color given.');
-			return;
-		}
-
-		if (hasValidName(response) && hasValidIcons(response) && hasValidIcons(response)) {
+		if (hasValidName(response) && hasValidIcons(response)) {
 			const icon = getLargestSquareIcon(response.icons, preferMaskable);
 			const iconUrl = new URL(icon.src, url);
 			return {
-				name: response.name || response.short_name,
+				name: response.name,
 				icon: iconUrl.href,
-				color: convertCssColorNameToHex(response.background_color),
+				color: convertCssColorNameToHex(response.background_color || 'white'),
 				orientation: response.orientation || 'any'
 			};
 		}

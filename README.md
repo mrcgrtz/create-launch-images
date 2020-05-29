@@ -49,9 +49,9 @@ $ yarn global add create-launch-images
 
 ### “Which properties of my Web App Manifest are parsed?”
 
-1. The `name` property is used for the app name. Falls back to `short_name`.
+1. The `name` property is used for the app name.
 2. The `icons` property is used for the app icon. The largest square PNG icon will be used. If the `addRadius` flag is set, the largest icon with a `purpose` property of `maskable` will be used.
-3. The `background_color` property is used for the image’s background color. Falls back to `#FFFFFF`.
+3. The `background_color` property is used for the image’s background color. Falls back to `white`.
 4. The `orientation` property is used for the output formats (portrait, landscape or both).
 
 ## License
