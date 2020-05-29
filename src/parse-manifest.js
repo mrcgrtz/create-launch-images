@@ -1,9 +1,7 @@
-const logSymbols = require('log-symbols');
 const got = require('got');
 const convertCssColorNameToHex = require('convert-css-color-name-to-hex');
 
-const hasValidName = response => response && response.name;
-const hasValidIcons = response => response && response.icons && Array.isArray(response.icons) && response.icons.length !== 0;
+const {logError} = require('./message');
 
 const isPNG = icon => icon.type === 'image/png' || icon.src.endsWith('.png');
 const isMaskable = icon => icon.purpose && icon.purpose.split(' ').includes('maskable');
@@ -16,6 +14,13 @@ const isSquare = icon => {
 
 	return false;
 };
+
+const hasValidName = response => response && response.name;
+const hasValidIcons = response =>
+	response &&
+	response.icons &&
+	Array.isArray(response.icons) &&
+	response.icons.find(icon => isPNG(icon) && isSquare(icon));
 
 const getMaxSize = sizes => Number(sizes.split(' ').sort((a, b) => Number(b.split('x')[0]) - Number(a.split('x')[0])).shift().split('x')[0]);
 
@@ -58,12 +63,12 @@ module.exports = async (url, preferMaskable = false) => {
 		}).json();
 
 		if (!hasValidName(response)) {
-			console.error(logSymbols.error, 'No name given.');
+			logError('No name property provided in manifest.');
 			return;
 		}
 
 		if (!hasValidIcons(response)) {
-			console.error(logSymbols.error, 'No icons given.');
+			logError('No usable icons found in manifest. Please add at least one square PNG image.');
 			return;
 		}
 
@@ -78,6 +83,6 @@ module.exports = async (url, preferMaskable = false) => {
 			};
 		}
 	} catch {
-		console.error(logSymbols.error, 'Could not fetch manifest');
+		logError('Could not fetch manifest');
 	}
 };
