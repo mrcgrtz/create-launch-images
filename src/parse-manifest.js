@@ -79,7 +79,8 @@ module.exports = async (url, preferMaskable = false) => {
 			return {
 				name: response.name || response.short_name,
 				icon: iconUrl.href,
-				color: convertCssColorNameToHex(response.background_color)
+				color: convertCssColorNameToHex(response.background_color),
+				orientation: response.orientation || 'any'
 			};
 		}
 	} catch {

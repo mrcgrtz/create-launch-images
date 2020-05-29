@@ -26,7 +26,7 @@ module.exports = async ({
 	const iconX = canvasCenterX - iconCenter;
 	const iconY = canvasCenterY - iconCenter - (TEXT_OFFSET * dpi);
 
-	const fontSize = Math.round(canvasWidth / 18);
+	const fontSize = isPortrait ? Math.round(canvasWidth / 18) : Math.round(canvasHeight / 18);
 
 	const canvas = createCanvas(canvasWidth, canvasHeight);
 	const ctx = canvas.getContext('2d');

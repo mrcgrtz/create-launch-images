@@ -2,7 +2,10 @@
 
 > A little script to create Android-like launch images for iOS PWA’s based on a Web App Manifest.
 
+![Update Status](https://img.shields.io/david/dreamseer/create-launch-images)
+![Update Status](https://img.shields.io/david/dev/dreamseer/create-launch-images.svg)
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
+[![MIT license](https://img.shields.io/github/license/dreamseer/create-launch-images.svg)](https://github.com/Dreamseer/create-launch-images/blob/master/LICENSE.md)
 
 ## Usage
 
@@ -20,26 +23,8 @@ $ npx create-launch-images --help
     --font, -f         Text font family
 
   Example
-    $ create-launch-images https://airhorner.com/manifest.json
-    <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2)" href="/apple-launch-414-896@2x.png">
-    <link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2)" href="/apple-launch-375-667@2x.png">
-    <link rel="apple-touch-startup-image" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)" href="/apple-launch-375-812@3x.png">
-    <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3)" href="/apple-launch-414-736@3x.png">
-    <link rel="apple-touch-startup-image" media="(device-width: 768px) and (device-height: 1024px) and (-webkit-device-pixel-ratio: 2)" href="/apple-launch-768-1024@2x.png">
-    <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)" href="/apple-launch-414-896@3x.png">
-    <link rel="apple-touch-startup-image" media="(device-width: 834px) and (device-height: 1194px) and (-webkit-device-pixel-ratio: 2)" href="/apple-launch-834-1194@2x.png">
-    <link rel="apple-touch-startup-image" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)" href="/apple-launch-834-1112@2x.png">
-    <link rel="apple-touch-startup-image" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" href="/apple-launch-1024-1366@2x.png">
+    $ npx create-launch-images https://airhorner.com/manifest.json
 ```
-
-```bash
-$ npx create-launch-images https://airhorner.com/manifest.json
-```
-
-### Hints for best results
-
-* Add icons with [`purpose: 'maskable'`](https://web.dev/maskable-icon/) to your manifest and apply the `--addRadius` flag.
-* Install [SF Pro Display](https://developer.apple.com/fonts/) locally for a font matching with the system UI.
 
 ## Optional installation
 
@@ -54,6 +39,20 @@ Using [yarn](https://yarnpkg.com/):
 ```bash
 $ yarn global add create-launch-images
 ```
+
+## FAQ
+
+### “How can I achieve the best results?”
+
+* Add icons with [`purpose: 'maskable'`](https://web.dev/maskable-icon/) to your manifest and apply the `--addRadius` flag.
+* Install [SF Pro Display](https://developer.apple.com/fonts/) locally for a font matching with the system UI.
+
+### “Which properties of my Web App Manifest are parsed?”
+
+1. The `name` property is used for the app name. Falls back to `short_name`.
+2. The `icons` property is used for the app icon. The largest square PNG icon will be used. If the `addRadius` flag is set, the largest icon with a `purpose` property of `maskable` will be used.
+3. The `background_color` property is used for the image’s background color. Falls back to `#FFFFFF`.
+4. The `orientation` property is used for the output formats (portrait, landscape or both).
 
 ## License
 
