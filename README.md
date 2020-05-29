@@ -15,7 +15,9 @@ $ npx create-launch-images --help
     $ npx create-launch-images <manifest-url>
 
   Options
-    --outputDir, -o          Output directory
+    --outputDir, -o    Output directory
+    --addRadius, -r    Add a radius to the app icon (prefers maskable icons)
+    --font, -f         Text font family
 
   Example
     $ create-launch-images https://airhorner.com/manifest.json
@@ -33,6 +35,11 @@ $ npx create-launch-images --help
 ```bash
 $ npx create-launch-images https://airhorner.com/manifest.json
 ```
+
+### Hints for best results
+
+* Add icons with [`purpose: 'maskable'`](https://web.dev/maskable-icon/) to your manifest and apply the `--addRadius` flag.
+* Install [SF Pro Display](https://developer.apple.com/fonts/) locally for a font matching with the system UI.
 
 ## Optional installation
 

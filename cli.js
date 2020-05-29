@@ -6,14 +6,13 @@ const meow = require('meow');
 const createLaunchImages = require('./src/lib');
 
 const cli = meow(`
-		A little script to create Android-like launch images for iOS PWA’s based on a Web App Manifest.
-
 		Usage
 			$ create-launch-images <manifest-url>
 
 		Options
-			--outputDir, -o          Output directory
-			--addRadius, -r          Add a radius to the app icon (prefers maskable icons)
+			--outputDir, -o    Output directory
+			--addRadius, -r    Add a radius to the app icon (prefers maskable icons)
+			--font, -f         Text font family
 
 		Example
 			$ create-launch-images https://airhorner.com/manifest.json
@@ -37,6 +36,11 @@ const cli = meow(`
 			type: 'boolean',
 			alias: 'r',
 			default: false
+		},
+		font: {
+			type: 'string',
+			alias: 'f',
+			default: 'SF Pro Display'
 		}
 	}
 });

@@ -10,9 +10,7 @@ module.exports = async ({
 	// Device
 	width, height, dpi,
 	// Flags
-	outputDir, addRadius,
-	// Upcoming flags
-	font = 'SF Pro Display',
+	outputDir, addRadius, font,
 	// Manifest data
 	name, icon, color = '#fff'
 }) => {
