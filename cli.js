@@ -13,6 +13,7 @@ const cli = meow(`
 
 		Options
 			--outputDir, -o          Output directory
+			--addRadius, -r          Add a radius to the app icon (prefers maskable icons)
 
 		Example
 			$ create-launch-images https://airhorner.com/manifest.json
@@ -29,7 +30,13 @@ const cli = meow(`
 	flags: {
 		outputDir: {
 			type: 'string',
-			alias: 'o'
+			alias: 'o',
+			default: '.'
+		},
+		addRadius: {
+			type: 'boolean',
+			alias: 'r',
+			default: false
 		}
 	}
 });

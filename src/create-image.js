@@ -1,12 +1,21 @@
-const {createCanvas, loadImage} = require('canvas');
-const invert = require('invert-color');
 const fs = require('fs');
+const invert = require('invert-color');
+const {createCanvas, loadImage} = require('canvas');
 
 const ICON_SCALE = 0.4;
-const ICON_OFFSET = 20;
 const ICON_RADIUS = 0.24;
+const TEXT_OFFSET = 20;
 
-module.exports = async ({width, height, dpi, name, icon, color = '#fff', font = 'SF Pro Display', outputDir}) => {
+module.exports = async ({
+	// Device
+	width, height, dpi,
+	// Flags
+	outputDir, addRadius,
+	// Upcoming flags
+	font = 'SF Pro Display',
+	// Manifest data
+	name, icon, color = '#fff'
+}) => {
 	const isPortrait = width < height;
 
 	const canvasWidth = width * dpi;
@@ -17,8 +26,7 @@ module.exports = async ({width, height, dpi, name, icon, color = '#fff', font = 
 	const iconSize = isPortrait ? Math.round(canvasWidth * ICON_SCALE) : Math.round(canvasHeight * ICON_SCALE);
 	const iconCenter = Math.round(iconSize / 2);
 	const iconX = canvasCenterX - iconCenter;
-	const iconY = canvasCenterY - iconCenter - (ICON_OFFSET * dpi);
-	const radius = Math.round(iconSize * ICON_RADIUS);
+	const iconY = canvasCenterY - iconCenter - (TEXT_OFFSET * dpi);
 
 	const fontSize = Math.round(canvasWidth / 18);
 
@@ -36,24 +44,29 @@ module.exports = async ({width, height, dpi, name, icon, color = '#fff', font = 
 	ctx.fillText(
 		name,
 		canvasCenterX,
-		canvasCenterY + iconCenter - (ICON_OFFSET * dpi) + ICON_OFFSET + fontSize,
+		canvasCenterY + iconCenter - (TEXT_OFFSET * dpi) + TEXT_OFFSET + fontSize,
 		canvasWidth - 100
 	);
 
-	// Draw rounded icon
+	// Draw icon
 	const image = await loadImage(icon);
-	ctx.beginPath();
-	ctx.moveTo(iconX + radius, iconY);
-	ctx.lineTo(iconX + iconSize - radius, iconY);
-	ctx.quadraticCurveTo(iconX + iconSize, iconY, iconX + iconSize, iconY + radius);
-	ctx.lineTo(iconX + iconSize, iconY + iconSize - radius);
-	ctx.quadraticCurveTo(iconX + iconSize, iconY + iconSize, iconX + iconSize - radius, iconY + iconSize);
-	ctx.lineTo(iconX + radius, iconY + iconSize);
-	ctx.quadraticCurveTo(iconX, iconY + iconSize, iconX, iconY + iconSize - radius);
-	ctx.lineTo(iconX, iconY + radius);
-	ctx.quadraticCurveTo(iconX, iconY, iconX + radius, iconY);
-	ctx.closePath();
-	ctx.clip();
+
+	if (addRadius) {
+		const radius = Math.round(iconSize * ICON_RADIUS);
+		ctx.beginPath();
+		ctx.moveTo(iconX + radius, iconY);
+		ctx.lineTo(iconX + iconSize - radius, iconY);
+		ctx.quadraticCurveTo(iconX + iconSize, iconY, iconX + iconSize, iconY + radius);
+		ctx.lineTo(iconX + iconSize, iconY + iconSize - radius);
+		ctx.quadraticCurveTo(iconX + iconSize, iconY + iconSize, iconX + iconSize - radius, iconY + iconSize);
+		ctx.lineTo(iconX + radius, iconY + iconSize);
+		ctx.quadraticCurveTo(iconX, iconY + iconSize, iconX, iconY + iconSize - radius);
+		ctx.lineTo(iconX, iconY + radius);
+		ctx.quadraticCurveTo(iconX, iconY, iconX + radius, iconY);
+		ctx.closePath();
+		ctx.clip();
+	}
+
 	ctx.drawImage(
 		image,
 		iconX,

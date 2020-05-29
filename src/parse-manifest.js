@@ -7,6 +7,7 @@ const hasValidIcons = response => response && response.icons && Array.isArray(re
 const hasValidColor = response => response && response.background_color;
 
 const isPNG = icon => icon.type === 'image/png' || icon.src.endsWith('.png');
+const isMaskable = icon => icon.purpose && icon.purpose.split(' ').includes('maskable');
 const isSquare = icon => {
 	const size = icon.sizes && icon.sizes.split(' ')[0];
 	if (size && size.includes('x')) {
@@ -19,29 +20,36 @@ const isSquare = icon => {
 
 const getMaxSize = sizes => Number(sizes.split(' ').sort((a, b) => Number(b.split('x')[0]) - Number(a.split('x')[0])).shift().split('x')[0]);
 
-const getLargestSquareIcon = icons => {
-	const squarePNGs = icons.filter(icon =>
-		icon.purpose !== 'maskable' && isPNG(icon) && isSquare(icon)
-	);
+const getLargestSquareIcon = (icons, preferMaskable) => {
+	const hasMaskableIcons = icons.find(icon => isPNG(icon) && isSquare(icon) && isMaskable(icon));
+	const squareIcons = icons.filter(icon => {
+		// If we want to clip the image, check and return maskable icons only
+		if (hasMaskableIcons && preferMaskable) {
+			return isPNG(icon) && isSquare(icon) && isMaskable(icon);
+		}
+
+		// Otherwise return anything we got
+		return isPNG(icon) && isSquare(icon);
+	});
 
 	// This loop is faster than .reduce()
-	let max = squarePNGs[0];
-	const size = squarePNGs.length;
+	let max = squareIcons[0];
+	const size = squareIcons.length;
 	let index;
 	for (index = 0; index < size; index++) {
-		const {sizes: currentSizes} = squarePNGs[index];
+		const {sizes: currentSizes} = squareIcons[index];
 		const {sizes: maxSizes} = max;
 		const currentMaxSize = getMaxSize(currentSizes);
 		const maxMaxSize = getMaxSize(maxSizes);
 		if (currentMaxSize > maxMaxSize) {
-			max = squarePNGs[index];
+			max = squareIcons[index];
 		}
 	}
 
 	return max;
 };
 
-module.exports = async url => {
+module.exports = async (url, preferMaskable = false) => {
 	try {
 		const response = await got(url, {
 			headers: {
@@ -66,7 +74,7 @@ module.exports = async url => {
 		}
 
 		if (hasValidName(response) && hasValidIcons(response) && hasValidIcons(response)) {
-			const icon = getLargestSquareIcon(response.icons);
+			const icon = getLargestSquareIcon(response.icons, preferMaskable);
 			const iconUrl = new URL(icon.src, url);
 			return {
 				name: response.name || response.short_name,

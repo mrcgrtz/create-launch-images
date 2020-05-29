@@ -1,29 +1,27 @@
-const logSymbols = require('log-symbols');
 const fs = require('fs');
+const logSymbols = require('log-symbols');
 
 const devices = require('./devices');
 const createImage = require('./create-image');
 const parseManifest = require('./parse-manifest');
 
-module.exports = (manifestUrl, {outputDir = '.'}) => (async () => {
+module.exports = (url, flags) => (async () => {
 	try {
-		const {name, color, icon} = await parseManifest(manifestUrl);
-		if (!fs.existsSync(outputDir)) {
-			fs.mkdirSync(outputDir);
+		const {name, color, icon} = await parseManifest(url, flags.addRadius);
+		if (!fs.existsSync(flags.outputDir)) {
+			fs.mkdirSync(flags.outputDir);
 		}
 
-		devices.forEach(async ({width, height, dpi}) => {
+		devices.forEach(async device => {
 			createImage({
+				...device,
+				...flags,
 				name,
 				color,
-				icon,
-				width,
-				height,
-				dpi,
-				outputDir
+				icon
 			});
 		});
 	} catch {
-		console.error(logSymbols.error, `Could not parse ${manifestUrl}`);
+		console.error(logSymbols.error, `Could not parse ${url}`);
 	}
 })();
