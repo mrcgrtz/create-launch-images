@@ -24,16 +24,16 @@
   },
   "dependencies": {
     "canvas": "^2.6.1",
-    "chalk": "^4.0.0",
+    "chalk": "^4.1.0",
     "convert-css-color-name-to-hex": "^0.1.1",
-    "got": "^11.1.4",
+    "got": "^11.3.0",
     "invert-color": "^2.0.0",
     "log-symbols": "^4.0.0",
     "meow": "^7.0.1"
   },
   "devDependencies": {
     "pre-commit": "^1.2.2",
-    "xo": "^0.30.0"
+    "xo": "^0.32.0"
   },
   "pre-commit": [
     "format",
