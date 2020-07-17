@@ -1,6 +1,6 @@
 # create-launch-images
 
-> A little script to create Android-like launch images for iOS PWA’s based on a Web App Manifest.
+> Create Android-like launch images for iOS PWA’s based on a Web App Manifest.
 
 ![Update Status](https://img.shields.io/david/dreamseer/create-launch-images)
 ![Update Status](https://img.shields.io/david/dev/dreamseer/create-launch-images.svg)
@@ -12,7 +12,7 @@
 ```bash
 $ npx create-launch-images --help
 
-  A little script to create Android-like launch images for iOS PWA’s based on a Web App Manifest.
+  Create Android-like launch images for iOS PWA’s based on a Web App Manifest.
 
   Usage
     $ npx create-launch-images <manifest-url>
