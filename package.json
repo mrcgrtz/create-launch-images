@@ -33,14 +33,14 @@
     "canvas": "^2.6.1",
     "chalk": "^4.1.0",
     "convert-css-color-name-to-hex": "^0.1.1",
-    "got": "^11.5.0",
+    "got": "^11.5.1",
     "invert-color": "^2.0.0",
     "log-symbols": "^4.0.0",
     "meow": "^7.0.1"
   },
   "devDependencies": {
-    "eslint-plugin-jest": "^23.18.0",
-    "jest": "^26.1.0",
+    "eslint-plugin-jest": "^23.20.0",
+    "jest": "^26.2.2",
     "pre-commit": "^1.2.2",
     "resemblejs": "^3.2.4",
     "xo": "^0.32.1"
@@ -50,11 +50,15 @@
     "test"
   ],
   "xo": {
-		"overrides": [
-			{
-				"files": "tests/*.js",
-        "extends": ["plugin:jest/recommended"],
-        "plugins": ["jest"]
+    "overrides": [
+      {
+        "files": "tests/*.js",
+        "extends": [
+          "plugin:jest/recommended"
+        ],
+        "plugins": [
+          "jest"
+        ]
       }
     ]
   }
