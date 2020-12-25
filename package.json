@@ -33,14 +33,14 @@
     "canvas": "^2.6.1",
     "chalk": "^4.1.0",
     "convert-css-color-name-to-hex": "^0.1.1",
-    "got": "^11.8.0",
+    "got": "^11.8.1",
     "invert-color": "^2.0.0",
     "log-symbols": "^4.0.0",
-    "meow": "^7.1.0"
+    "meow": "^8.1.0"
   },
   "devDependencies": {
     "pre-commit": "^1.2.2",
-    "xo": "^0.32.1"
+    "xo": "^0.36.1"
   },
   "pre-commit": [
     "format",
