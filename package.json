@@ -36,7 +36,7 @@
     "got": "^11.8.1",
     "invert-color": "^2.0.0",
     "log-symbols": "^4.0.0",
-    "meow": "^8.1.0"
+    "meow": "^8.1.2"
   },
   "devDependencies": {
     "pre-commit": "^1.2.2",
