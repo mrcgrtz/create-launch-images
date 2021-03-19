@@ -33,7 +33,7 @@
     "canvas": "^2.6.1",
     "chalk": "^4.1.0",
     "convert-css-color-name-to-hex": "^0.1.1",
-    "got": "^11.8.1",
+    "got": "^11.8.2",
     "invert-color": "^2.0.0",
     "log-symbols": "^4.0.0",
     "meow": "^9.0.0"
