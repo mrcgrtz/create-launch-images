@@ -30,17 +30,17 @@
     "test": "xo"
   },
   "dependencies": {
-    "canvas": "^2.6.1",
+    "canvas": "^2.7.0",
     "chalk": "^4.1.0",
     "convert-css-color-name-to-hex": "^0.1.1",
     "got": "^11.8.2",
     "invert-color": "^2.0.0",
-    "log-symbols": "^4.0.0",
+    "log-symbols": "^4.1.0",
     "meow": "^9.0.0"
   },
   "devDependencies": {
     "pre-commit": "^1.2.2",
-    "xo": "^0.37.1"
+    "xo": "^0.38.2"
   },
   "pre-commit": [
     "format",
