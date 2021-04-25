@@ -31,13 +31,13 @@ $ npx create-launch-images --help
 Using [npm](https://www.npmjs.com/get-npm):
 
 ```bash
-$ npm install create-launch-images --global
+npm install create-launch-images --global
 ```
 
 Using [yarn](https://yarnpkg.com/):
 
 ```bash
-$ yarn global add create-launch-images
+yarn global add create-launch-images
 ```
 
 ## FAQ
