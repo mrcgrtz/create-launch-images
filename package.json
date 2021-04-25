@@ -23,7 +23,7 @@
     "create-launch-images": "cli.js"
   },
   "engines": {
-    "node": ">=14"
+    "node": ">=14 <16"
   },
   "scripts": {
     "format": "xo --fix",
