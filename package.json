@@ -1,6 +1,6 @@
 {
   "name": "create-launch-images",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Create Android-like launch images for iOS PWA’s based on a Web App Manifest.",
   "license": "MIT",
   "repository": {
