@@ -1,10 +1,10 @@
-const chalk = require('chalk');
-const logSymbols = require('log-symbols');
+import chalk from 'chalk';
+import logSymbols from 'log-symbols';
 
-exports.logError = data => {
+export const logError = data => {
 	console.error(chalk.red(logSymbols.error, data));
 };
 
-exports.logInfo = data => {
+export const logInfo = data => {
 	console.info(chalk.blue(logSymbols.info, data));
 };

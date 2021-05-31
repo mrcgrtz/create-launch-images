@@ -1,6 +1,6 @@
 /* eslint-disable capitalized-comments */
 
-module.exports = [
+const devices = [
 	{
 		// iPhone 12 Pro Max (1284 x 2778px)
 		width: 428,
@@ -68,3 +68,5 @@ module.exports = [
 		dpi: 2
 	}
 ];
+
+export default devices;

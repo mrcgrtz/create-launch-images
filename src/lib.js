@@ -1,11 +1,11 @@
-const fs = require('fs');
+import fs from 'node:fs';
 
-const {logError} = require('./message');
-const getDeviceByOrientation = require('./get-device-by-orientation');
-const createImage = require('./create-image');
-const parseManifest = require('./parse-manifest');
+import {logError} from './message.js';
+import getDeviceByOrientation from './get-device-by-orientation.js';
+import createImage from './create-image.js';
+import parseManifest from './parse-manifest.js';
 
-module.exports = (url, flags) => (async () => {
+const main = (url, flags) => (async () => {
 	try {
 		const manifest = await parseManifest(url, flags.addRadius);
 		if (manifest) {
@@ -29,3 +29,5 @@ module.exports = (url, flags) => (async () => {
 		logError(`Could not parse ${url}`);
 	}
 })();
+
+export default main;

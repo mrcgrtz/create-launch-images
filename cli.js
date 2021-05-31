@@ -1,9 +1,7 @@
 #!/usr/bin/env node
 
-'use strict';
-
-const meow = require('meow');
-const createLaunchImages = require('./src/lib');
+import meow from 'meow';
+import createLaunchImages from './src/lib.js';
 
 const cli = meow(`
 		Usage
@@ -26,6 +24,7 @@ const cli = meow(`
 			<link rel="apple-touch-startup-image" media="(device-width: 834px) and (device-height: 1112px) and (-webkit-device-pixel-ratio: 2)" href="/apple-launch-834-1112@2x.png">
 			<link rel="apple-touch-startup-image" media="(device-width: 1024px) and (device-height: 1366px) and (-webkit-device-pixel-ratio: 2)" href="/apple-launch-1024-1366@2x.png">
 `, {
+	importMeta: import.meta,
 	flags: {
 		outputDir: {
 			type: 'string',

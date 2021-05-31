@@ -1,12 +1,14 @@
-const fs = require('fs');
-const invert = require('invert-color');
-const {createCanvas, loadImage} = require('canvas');
+import fs from 'node:fs';
+import invert from 'invert-color';
+import canvas from 'canvas';
+
+const {createCanvas, loadImage} = canvas;
 
 const ICON_SCALE = 0.4;
 const ICON_RADIUS = 0.24;
 const TEXT_OFFSET = 20;
 
-module.exports = async ({
+const createImage = async ({
 	// Device
 	width, height, dpi,
 	// Flags
@@ -80,3 +82,5 @@ module.exports = async ({
 	stream.pipe(out);
 	out.on('finish', () => console.log(`<link rel="apple-touch-startup-image" media="(device-width: ${width}px) and (device-height: ${height}px) and (-webkit-device-pixel-ratio: ${dpi})" href="/${fileName}">`));
 };
+
+export default createImage;

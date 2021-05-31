@@ -1,4 +1,4 @@
-const devices = require('./devices');
+import devices from './devices.js';
 
 /**
  * Rotate device size.
@@ -21,7 +21,7 @@ const rotate = device => ({
  * @param {"portrait" | "portrait-primary" | "portrait-secondary" | "landscape" | "landscape-primary" | "landscape-secondary" | "any"} orientation Device orientation (via manifest)
  * @return {array} Devices
  */
-module.exports = orientation => devices.flatMap(device => {
+const getDeviceByOrientation = orientation => devices.flatMap(device => {
 	// "portrait", "portrait-primary", "portrait-secondary"
 	if (orientation.startsWith('portrait')) {
 		return device;
@@ -35,3 +35,5 @@ module.exports = orientation => devices.flatMap(device => {
 	// "any"
 	return [device, rotate(device)];
 });
+
+export default getDeviceByOrientation;

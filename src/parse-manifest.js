@@ -1,7 +1,7 @@
-const got = require('got');
-const convertCssColorNameToHex = require('convert-css-color-name-to-hex');
+import got from 'got';
+import convertCssColorNameToHex from 'convert-css-color-name-to-hex';
 
-const {logError} = require('./message');
+import {logError} from './message.js';
 
 const isPNG = icon => icon.type === 'image/png' || icon.src.endsWith('.png');
 const isMaskable = icon => icon.purpose && icon.purpose.split(' ').includes('maskable');
@@ -53,7 +53,7 @@ const getLargestSquareIcon = (icons, preferMaskable) => {
 	return max;
 };
 
-module.exports = async (url, preferMaskable = false) => {
+const parseManifest = async (url, preferMaskable = false) => {
 	try {
 		const response = await got(url, {
 			headers: {
@@ -86,3 +86,5 @@ module.exports = async (url, preferMaskable = false) => {
 		logError('Could not fetch manifest');
 	}
 };
+
+export default parseManifest;
