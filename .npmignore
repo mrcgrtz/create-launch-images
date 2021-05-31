@@ -1,5 +1,9 @@
 /node_modules
+/.github
 /.vscode
 /samples
 .DS_Store
+.gitattributes
+.editorconfig
+.nvmrc
 npm-debug.log*
