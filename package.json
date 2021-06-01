@@ -25,7 +25,9 @@
   "type": "module",
   "scripts": {
     "format": "xo --fix",
-    "test": "xo"
+    "test": "xo && c8 --all ava",
+    "test:coverage": "c8 report --reporter=lcov",
+    "test:watch": "ava --watch"
   },
   "dependencies": {
     "canvas": "^2.8.0",
@@ -35,6 +37,9 @@
     "meow": "^10.0.0"
   },
   "devDependencies": {
+    "ava": "^3.15.0",
+    "c8": "^7.7.2",
+    "nock": "^13.1.0",
     "pre-commit": "^1.2.2",
     "xo": "^0.40.1"
   },
