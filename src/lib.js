@@ -6,7 +6,6 @@ import getDeviceByOrientation from './get-device-by-orientation.js';
 import createImage from './create-image.js';
 
 /**
- *
  * @param {string} url Manifest URL
  * @param {object} [options] Image options
  * @param {string} [options.outputDir] Output directory
@@ -14,7 +13,7 @@ import createImage from './create-image.js';
  * @param {string} [options.font] Text font family
  * @returns Promise<void>
  */
-const main = (url, options = {}) => (async () => {
+const lib = (url, options = {}) => (async () => {
 	try {
 		const manifest = await getManifest(url);
 		if (manifest) {
@@ -44,4 +43,4 @@ const main = (url, options = {}) => (async () => {
 	}
 })();
 
-export default main;
+export default lib;
