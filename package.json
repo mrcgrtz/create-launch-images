@@ -29,11 +29,9 @@
   },
   "dependencies": {
     "canvas": "^2.8.0",
-    "chalk": "^4.1.1",
     "convert-css-color-name-to-hex": "^0.1.1",
     "got": "^11.8.2",
     "invert-color": "^2.0.0",
-    "log-symbols": "^5.0.0",
     "meow": "^10.0.0"
   },
   "devDependencies": {
