@@ -4,6 +4,7 @@
 
 ![Update Status](https://img.shields.io/david/dreamseer/create-launch-images)
 ![Update Status](https://img.shields.io/david/dev/dreamseer/create-launch-images.svg)
+[![Tests](https://github.com/Dreamseer/create-launch-images/actions/workflows/test.yml/badge.svg)](https://github.com/Dreamseer/create-launch-images/actions/workflows/test.yml)
 [![Coverage Status](https://coveralls.io/repos/github/Dreamseer/create-launch-images/badge.svg?branch=main)](https://coveralls.io/github/Dreamseer/create-launch-images?branch=main)
 [![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 [![MIT license](https://img.shields.io/github/license/dreamseer/create-launch-images.svg)](https://github.com/Dreamseer/create-launch-images/blob/master/LICENSE.md)
