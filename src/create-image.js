@@ -14,7 +14,7 @@ const createImage = async ({
 	// Flags
 	outputDir, addRadius, font,
 	// Manifest data
-	name, icon, color
+	name, icon, color,
 }) => {
 	const isPortrait = width < height;
 
@@ -45,7 +45,7 @@ const createImage = async ({
 		name,
 		canvasCenterX,
 		canvasCenterY + iconCenter - (TEXT_OFFSET * dpi) + TEXT_OFFSET + fontSize,
-		canvasWidth - 100
+		canvasWidth - 100,
 	);
 
 	// Draw icon
@@ -72,7 +72,7 @@ const createImage = async ({
 		iconX,
 		iconY,
 		iconSize,
-		iconSize
+		iconSize,
 	);
 
 	// Write PNG file

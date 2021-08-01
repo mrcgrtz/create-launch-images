@@ -8,7 +8,7 @@ test('Parse manifest', async t => {
 		color: '#2196f3',
 		icon: 'https://example.com/images/touch/android-launchericon-512-512.png',
 		name: 'The Air Horner',
-		orientation: 'any'
+		orientation: 'any',
 	});
 });
 
@@ -17,7 +17,7 @@ test('Falls back to white when a background color is missing in the manifest', a
 	delete augmentedFixture.background_color;
 	const parsedManifest = await parseManifest(augmentedFixture, 'https://example.com');
 	t.like(parsedManifest, {
-		color: '#ffffff'
+		color: '#ffffff',
 	});
 });
 

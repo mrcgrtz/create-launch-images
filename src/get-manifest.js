@@ -6,8 +6,8 @@ const getManifest = async url => {
 			retry: 0,
 			headers: {
 				// Diguise as Safari to handle browser sniffing
-				'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1 Safari/605.1.15'
-			}
+				'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_4) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1 Safari/605.1.15',
+			},
 		}).json();
 
 		return manifest;

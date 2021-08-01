@@ -3,13 +3,13 @@ import isMaskable from '../src/helpers/is-maskable.js';
 
 test('Is a maskable icon', t => {
 	t.true(isMaskable({
-		purpose: 'any maskable'
+		purpose: 'any maskable',
 	}));
 });
 
 test('Is not a maskable icon', t => {
 	t.false(isMaskable({
-		purpose: 'monochrome'
+		purpose: 'monochrome',
 	}));
 });
 

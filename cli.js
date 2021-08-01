@@ -29,19 +29,19 @@ const cli = meow(`
 		outputDir: {
 			type: 'string',
 			alias: 'o',
-			default: '.'
+			default: '.',
 		},
 		addRadius: {
 			type: 'boolean',
 			alias: 'r',
-			default: false
+			default: false,
 		},
 		font: {
 			type: 'string',
 			alias: 'f',
-			default: 'SF Pro Display'
-		}
-	}
+			default: 'SF Pro Display',
+		},
+	},
 });
 
 if (cli.input[0] === undefined) {

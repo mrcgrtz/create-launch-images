@@ -12,7 +12,7 @@ import devices from './devices.js';
 const rotate = device => ({
 	...device,
 	width: device.height,
-	height: device.width
+	height: device.width,
 });
 
 /**

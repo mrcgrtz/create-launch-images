@@ -6,10 +6,10 @@ import getLargestSquareIcon from './get-largest-square-icon.js';
 
 const hasValidName = response => response && response.name;
 const hasValidIcons = response =>
-	response &&
-	response.icons &&
-	Array.isArray(response.icons) &&
-	response.icons.find(icon => isPNG(icon) && isSquare(icon));
+	response
+	&& response.icons
+	&& Array.isArray(response.icons)
+	&& response.icons.find(icon => isPNG(icon) && isSquare(icon));
 
 const parseManifest = async (manifest, url, preferMaskable = false) => {
 	if (!hasValidName(manifest)) {
@@ -28,7 +28,7 @@ const parseManifest = async (manifest, url, preferMaskable = false) => {
 		name: manifest.name,
 		icon: iconUrl.href,
 		color: convertCssColorNameToHex(manifest.background_color || 'white').toLowerCase(),
-		orientation: manifest.orientation || 'any'
+		orientation: manifest.orientation || 'any',
 	};
 };
 

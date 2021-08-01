@@ -31,7 +31,7 @@ const lib = (url, options = {}) => (async () => {
 						...options,
 						name,
 						color,
-						icon
+						icon,
 					});
 				}
 			}

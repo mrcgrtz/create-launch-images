@@ -8,7 +8,7 @@ const orientations = [
 	'landscape',
 	'landscape-primary',
 	'landscape-secondary',
-	'any'
+	'any',
 ];
 
 for (const orientation of orientations) {
