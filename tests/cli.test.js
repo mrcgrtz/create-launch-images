@@ -1,5 +1,5 @@
 import test from 'ava';
-import execa from 'execa';
+import {execa} from 'execa';
 import {getBinPathSync} from 'get-bin-path';
 
 test('Input without flags and value', async t => {
