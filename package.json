@@ -43,7 +43,7 @@
     "get-bin-path": "^6.0.1",
     "nock": "^13.1.1",
     "pre-commit": "^1.2.2",
-    "xo": "^0.46.4"
+    "xo": "^0.47.0"
   },
   "pre-commit": [
     "format",
