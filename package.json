@@ -32,7 +32,7 @@
   "dependencies": {
     "canvas": "^2.8.0",
     "convert-css-color-name-to-hex": "^0.1.1",
-    "got": "^11.8.2",
+    "got": "^12.0.0",
     "invert-color": "^2.0.0",
     "meow": "^10.0.0"
   },
