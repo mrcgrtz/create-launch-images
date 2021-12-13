@@ -24,7 +24,6 @@
   },
   "type": "module",
   "scripts": {
-    "format": "xo --fix",
     "test": "xo && c8 --all ava",
     "test:coverage": "c8 report --reporter=lcov",
     "test:watch": "ava --watch"
@@ -41,12 +40,12 @@
     "c8": "^7.8.0",
     "execa": "^6.0.0",
     "get-bin-path": "^6.0.1",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.1.2",
     "nock": "^13.1.1",
-    "pre-commit": "^1.2.2",
     "xo": "^0.47.0"
   },
-  "pre-commit": [
-    "format",
-    "test"
-  ]
+  "lint-staged": {
+    "*.js": "xo --fix"
+  }
 }
