@@ -1,6 +1,18 @@
 version: 2
 updates:
+
+  # Maintain dependencies for Node
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
+      interval: "weekly"
+    assignees:
+      - "dreamseer"
+
+  # Check for updates for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
       interval: "daily"
+    assignees:
+      - "dreamseer"
