@@ -20,7 +20,7 @@
     "create-launch-images": "cli.js"
   },
   "engines": {
-    "node": ">=14"
+    "node": ">=16"
   },
   "type": "module",
   "scripts": {
