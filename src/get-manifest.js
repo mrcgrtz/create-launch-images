@@ -10,7 +10,9 @@ const getManifest = async url => {
 		}).json();
 
 		return manifest;
-	} catch {}
+	} catch {
+		return undefined;
+	}
 };
 
 export default getManifest;
