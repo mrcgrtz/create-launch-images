@@ -5,14 +5,13 @@ import canvas from 'canvas';
 const {createCanvas, loadImage} = canvas;
 
 const ICON_SCALE = 0.4;
-const ICON_RADIUS = 0.24;
 const TEXT_OFFSET = 20;
 
 const createImage = async ({
 	// Device
 	width, height, dpi,
 	// Flags
-	outputDir, addRadius, font,
+	outputDir, square, font,
 	// Manifest data
 	name, icon, color,
 }) => {
@@ -51,18 +50,13 @@ const createImage = async ({
 	// Draw icon
 	const image = await loadImage(icon);
 
-	if (addRadius) {
-		const radius = Math.round(iconSize * ICON_RADIUS);
+	if (!square) {
 		ctx.beginPath();
-		ctx.moveTo(iconX + radius, iconY);
-		ctx.lineTo(iconX + iconSize - radius, iconY);
-		ctx.quadraticCurveTo(iconX + iconSize, iconY, iconX + iconSize, iconY + radius);
-		ctx.lineTo(iconX + iconSize, iconY + iconSize - radius);
-		ctx.quadraticCurveTo(iconX + iconSize, iconY + iconSize, iconX + iconSize - radius, iconY + iconSize);
-		ctx.lineTo(iconX + radius, iconY + iconSize);
-		ctx.quadraticCurveTo(iconX, iconY + iconSize, iconX, iconY + iconSize - radius);
-		ctx.lineTo(iconX, iconY + radius);
-		ctx.quadraticCurveTo(iconX, iconY, iconX + radius, iconY);
+		ctx.moveTo(iconX + (iconSize / 2), iconY);
+		ctx.bezierCurveTo(iconX, iconY, iconX, iconY, iconX, iconY + (iconSize / 2));
+		ctx.bezierCurveTo(iconX, iconY + iconSize, iconX, iconY + iconSize, iconX + (iconSize / 2), iconY + iconSize);
+		ctx.bezierCurveTo(iconX + iconSize, iconY + iconSize, iconX + iconSize, iconY + iconSize, iconX + iconSize, iconY + (iconSize / 2));
+		ctx.bezierCurveTo(iconX + iconSize, iconY, iconX + iconSize, iconY, iconX + (iconSize / 2), iconY);
 		ctx.closePath();
 		ctx.clip();
 	}

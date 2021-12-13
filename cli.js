@@ -8,9 +8,10 @@ const cli = meow(`
 			$ create-launch-images <manifest-url>
 
 		Options
-			--outputDir, -o    Output directory
-			--addRadius, -r    Add a radius to the app icon (prefers maskable icons)
-			--font, -f         Text font family
+			-o, --outputDir <directory>   Output directory
+			-m, --maskable yes/no/auto    Prefer maskable icons
+			-s, --square                  Disable squircle radius on icons
+			-f, --font                    Text font family
 
 		Example
 			$ create-launch-images https://airhorner.com/manifest.json
@@ -31,9 +32,14 @@ const cli = meow(`
 			alias: 'o',
 			default: '.',
 		},
-		addRadius: {
+		maskable: {
+			type: 'string',
+			alias: 'm',
+			default: 'auto',
+		},
+		square: {
 			type: 'boolean',
-			alias: 'r',
+			alias: 's',
 			default: false,
 		},
 		font: {

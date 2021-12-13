@@ -24,9 +24,16 @@ test('Get largest square icon from manifest icons', t => {
 });
 
 test('Get largest maskable square icon from manifest icons', t => {
-	t.deepEqual(getLargestSquareIcon(icons, true), {
+	t.deepEqual(getLargestSquareIcon(icons, 'yes'), {
 		src: 'bar.png',
 		sizes: '64x64',
 		purpose: 'maskable',
+	});
+});
+
+test('Get largest non-maskable square icon from manifest icons', t => {
+	t.deepEqual(getLargestSquareIcon(icons, 'no'), {
+		src: 'baz.png',
+		sizes: '192x192',
 	});
 });

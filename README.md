@@ -18,9 +18,10 @@ $ npx create-launch-images --help
     $ npx create-launch-images <manifest-url>
 
   Options
-    --outputDir, -o    Output directory
-    --addRadius, -r    Add a radius to the app icon (prefers maskable icons)
-    --font, -f         Text font family
+    -o, --outputDir <directory>   Output directory
+    -m, --maskable yes/no/auto    Prefer maskable icons
+    -s, --square                  Disable squircle radius on icons
+    -f, --font                    Text font family
 
   Example
     $ npx create-launch-images https://airhorner.com/manifest.json
@@ -44,19 +45,21 @@ yarn global add create-launch-images
 
 ### “How can I achieve the best results?”
 
-* Add icons with [`purpose: 'maskable'`](https://web.dev/maskable-icon/) to your manifest and apply the `--addRadius` flag.
+* Add icons with [`purpose: 'maskable'`](https://web.dev/maskable-icon/) to your manifest.
 * Install [SF Pro Display](https://developer.apple.com/fonts/) locally for a font matching with the system UI.
 
 ### “Which properties of my Web App Manifest are parsed?”
 
 1. The `name` property is used for the app name.
-2. The `icons` property is used for the app icon. The largest square PNG icon will be used. If the `addRadius` flag is set, the largest icon with a `purpose` property of `maskable` will be used.
+2. The `icons` property is used for the app icon. The largest square PNG icon will be used.
 3. The `background_color` property is used for the image’s background color. Falls back to `white`.
 4. The `orientation` property is used for the output formats (portrait, landscape or both).
 
 ## Examples
 
-<img src="samples/1.png" width="30%" alt="Example 1: Airhorner"> <img src="samples/2.png" width="30%" alt="Example 2: My music club"> <img src="samples/3.png" width="30%" alt="Example 3: My bowling club">
+<img src="samples/1.png" width="30%" alt="Example 1: Airhorner">
+<img src="samples/2.png" width="30%" alt="Example 2: My music club">
+<img src="samples/3.png" width="30%" alt="Example 3: My bowling club">
 
 ## License
 

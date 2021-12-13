@@ -11,7 +11,7 @@ const hasValidIcons = response =>
 	&& Array.isArray(response.icons)
 	&& response.icons.find(icon => isPNG(icon) && isSquare(icon));
 
-const parseManifest = async (manifest, url, preferMaskable = false) => {
+const parseManifest = async (manifest, url, maskable = 'auto') => {
 	if (!hasValidName(manifest)) {
 		console.error('No name property provided in manifest.');
 		return;
@@ -22,7 +22,7 @@ const parseManifest = async (manifest, url, preferMaskable = false) => {
 		return;
 	}
 
-	const icon = getLargestSquareIcon(manifest.icons, preferMaskable);
+	const icon = getLargestSquareIcon(manifest.icons, maskable);
 	const iconUrl = new URL(icon.src, url);
 	return {
 		name: manifest.name,

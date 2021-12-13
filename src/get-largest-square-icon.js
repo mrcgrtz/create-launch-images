@@ -4,12 +4,17 @@ import isMaskable from './helpers/is-maskable.js';
 
 const getMaxSize = sizes => Number(sizes.split(' ').sort((a, b) => Number(b.split('x')[0]) - Number(a.split('x')[0])).shift().split('x')[0]);
 
-const getLargestSquareIcon = (icons, preferMaskable = false) => {
+const getLargestSquareIcon = (icons, maskable = 'auto') => {
+	const validatedMaskable = (maskable !== 'yes' && maskable !== 'no' && maskable !== 'yes') ? 'auto' : maskable;
 	const hasSuitableIcons = icons.find(icon => isPNG(icon) && isSquare(icon) && isMaskable(icon));
 	const squareIcons = icons.filter(icon => {
 		// If we want to clip the image, check and return maskable icons only
-		if (hasSuitableIcons && preferMaskable) {
+		if (hasSuitableIcons && validatedMaskable === 'yes') {
 			return isPNG(icon) && isSquare(icon) && isMaskable(icon);
+		}
+
+		if (hasSuitableIcons && validatedMaskable === 'no') {
+			return isPNG(icon) && isSquare(icon) && !isMaskable(icon);
 		}
 
 		// Otherwise return anything we got
