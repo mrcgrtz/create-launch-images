@@ -3,14 +3,17 @@
   "version": "0.0.12",
   "description": "Create Android-like launch images for iOS PWA’s based on a Web App Manifest.",
   "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Dreamseer/create-launch-images.git"
-  },
-  "funding": {
-    "type": "kofi",
-    "url": "https://ko-fi.com/mrcgrtz"
-  },
+  "repository": "github:mrcgrtz/create-launch-images",
+  "funding": [
+    {
+      "type": "kofi",
+      "url": "https://ko-fi.com/mrcgrtz"
+    },
+    {
+      "type": "liberapay",
+      "url": "https://liberapay.com/mrcgrtz"
+    }
+  ],
   "author": {
     "name": "Marc Görtz",
     "email": "git@marcgoertz.de",
