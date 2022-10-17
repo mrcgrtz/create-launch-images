@@ -36,7 +36,7 @@
     "convert-css-color-name-to-hex": "^0.1.1",
     "got": "^12.1.0",
     "invert-color": "^2.0.0",
-    "meow": "^10.1.2"
+    "meow": "^11.0.0"
   },
   "devDependencies": {
     "ava": "^4.3.0",
