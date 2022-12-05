@@ -2,21 +2,21 @@
 
 const devices = [
 	{
-		// iPhone 13 Pro Max (1242 x 2778px)
-		width: 414,
-		height: 926,
+		// iPhone 14 Pro Max (1290px x 2790px)
+		width: 430,
+		height: 930,
 		dpi: 3,
 	},
 	{
-		// iPhone 12 Pro Max (1284 x 2778px)
+		// iPhone 14 Plus, iPhone 12 Pro Max (1284 x 2778px)
 		width: 428,
 		height: 926,
 		dpi: 3,
 	},
 	{
-		// iPhone 13, 13 Pro, 12, 12 Pro (1170px x 2532px)
-		width: 390,
-		height: 844,
+		// iPhone 13 Pro Max (1242 x 2778px)
+		width: 414,
+		height: 926,
 		dpi: 3,
 	},
 	{
@@ -26,10 +26,28 @@ const devices = [
 		dpi: 3,
 	},
 	{
+		// iPhone 14 Pro (1179px x 2556px)
+		width: 393,
+		height: 852,
+		dpi: 3,
+	},
+	{
+		// iPhone 14, iPhone 13, 13 Pro, 12, 12 Pro (1170px x 2532px)
+		width: 390,
+		height: 844,
+		dpi: 3,
+	},
+	{
 		// iPhone XR, 11 (828px x 1792px)
 		width: 414,
 		height: 896,
 		dpi: 2,
+	},
+	{
+		// iPhone 8 Plus, 7 Plus, 6s Plus, 6 Plus (1242px x 2208px)
+		width: 414,
+		height: 736,
+		dpi: 3,
 	},
 	{
 		// iPhone 13 mini (1080px x 2340px)
@@ -41,12 +59,6 @@ const devices = [
 		// iPhone X, Xs, 11 Pro, 12 mini (1125px x 2436px)
 		width: 375,
 		height: 812,
-		dpi: 3,
-	},
-	{
-		// iPhone 8 Plus, 7 Plus, 6s Plus, 6 Plus (1242px x 2208px)
-		width: 414,
-		height: 736,
 		dpi: 3,
 	},
 	{
