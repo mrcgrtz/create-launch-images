@@ -2,13 +2,19 @@
 
 const devices = [
 	{
+		// iPhone 13 Pro Max (1242 x 2778px)
+		width: 414,
+		height: 926,
+		dpi: 3,
+	},
+	{
 		// iPhone 12 Pro Max (1284 x 2778px)
 		width: 428,
 		height: 926,
 		dpi: 3,
 	},
 	{
-		// iPhone 12, 12 Pro (1170px x 2532px)
+		// iPhone 13, 13 Pro, 12, 12 Pro (1170px x 2532px)
 		width: 390,
 		height: 844,
 		dpi: 3,
@@ -24,6 +30,12 @@ const devices = [
 		width: 414,
 		height: 896,
 		dpi: 2,
+	},
+	{
+		// iPhone 13 mini (1080px x 2340px)
+		width: 360,
+		height: 780,
+		dpi: 3,
 	},
 	{
 		// iPhone X, Xs, 11 Pro, 12 mini (1125px x 2436px)
