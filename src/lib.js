@@ -1,5 +1,4 @@
 import fs from 'node:fs';
-
 import getManifest from './get-manifest.js';
 import parseManifest from './parse-manifest.js';
 import getDeviceByOrientation from './get-device-by-orientation.js';

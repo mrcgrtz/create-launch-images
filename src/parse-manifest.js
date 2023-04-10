@@ -1,5 +1,4 @@
 import convertCssColorNameToHex from 'convert-css-color-name-to-hex';
-
 import isPNG from './helpers/is-png.js';
 import isSquare from './helpers/is-square.js';
 import getLargestSquareIcon from './get-largest-square-icon.js';
