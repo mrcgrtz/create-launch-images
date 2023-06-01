@@ -29,22 +29,22 @@ const cli = meow(`
 	flags: {
 		outputDir: {
 			type: 'string',
-			alias: 'o',
+			shortFlag: 'o',
 			default: '.',
 		},
 		maskable: {
 			type: 'string',
-			alias: 'm',
+			shortFlag: 'm',
 			default: 'auto',
 		},
 		square: {
 			type: 'boolean',
-			alias: 's',
+			shortFlag: 's',
 			default: false,
 		},
 		font: {
 			type: 'string',
-			alias: 'f',
+			shortFlag: 'f',
 			default: 'SF Pro Display',
 		},
 	},
