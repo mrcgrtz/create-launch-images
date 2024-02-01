@@ -27,6 +27,7 @@
   },
   "type": "module",
   "scripts": {
+    "prepare": "husky",
     "test": "xo && c8 --all ava",
     "test:coverage": "c8 report --reporter=lcov",
     "test:watch": "ava --watch"
