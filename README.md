@@ -1,5 +1,8 @@
 # create-launch-images
 
+> [!WARNING]
+> This tool is deprecated as iOS 15 or newer no longer supports `apple-touch-startup-image`.
+
 > Create Android-like launch images for iOS PWA’s based on a Web App Manifest.
 
 [![Test](https://github.com/mrcgrtz/create-launch-images/actions/workflows/test.yml/badge.svg)](https://github.com/mrcgrtz/create-launch-images/actions/workflows/test.yml)
